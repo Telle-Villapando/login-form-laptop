@@ -49,7 +49,26 @@ class UserController extends Controller
     public function forgotPassword(){
         return view('AuthLogin.forgotPassword');
     }
-
+    public function deleteAccount(User $user, Request $request)
+    {
+        // Validate the input
+        $data = $request->validate([
+            'deleteAccount' => 'required|string',
+        ]);
+    
+        // Check if the input matches 'DELETE'
+        if ($data['deleteAccount'] === 'DELETE') {
+            // Delete the user account
+            $user->delete();
+    
+            // Redirect to the registration page with success message
+            return redirect('/register')->with('success', 'User Deleted Successfully');
+        }
+    
+        // If input does not match 'DELETE', redirect back with an error
+        return redirect()->back()->with('error', 'Please type DELETE to confirm account deletion.');
+    }
+    
 
     
 }

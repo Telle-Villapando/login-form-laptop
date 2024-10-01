@@ -47,6 +47,8 @@ Route::get('user/{user}/profile', [UserController::class,'profile'])->name('user
 Route::get('user/{user}/profile/public',[UserController::class,'publicProfile'])->name('user.publicProfile');
 Route::put('user/{user}/profile/update', [UserController::class,'profileUpdate'])->name('user.profileUpdate');
 Route::get('user/cancel',[UserController::class,'cancelProfileUpdate'])->name('user.cancelProfileUpdate');
+Route::delete('user/account/{user}/delete', [UserController::class,'deleteAccount'])->name('user.deleteAccount');
+
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');

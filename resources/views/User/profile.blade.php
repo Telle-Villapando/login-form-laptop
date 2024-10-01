@@ -183,13 +183,14 @@
                     </div>
                     
                   </form>
-                  <form action="" method="POST">
+                  <form action="{{route('user.deleteAccount', ['user'=>$user])}}" method="POST">
                     @csrf
+                    @method('DELETE')
                     <div class="block p-4 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500">
                         <h2 class="text-lg font-semibold mb-4">Delete Your Account</h2>
                         <p class="text-sm mb-4">Deleting your account is permanent and cannot be undone. All your data will be lost. Please proceed with caution.</p>
-                        <label for="first_name" class="block mb-2 text-sm font-medium text-indigo-900">To confirm this, type "DELETE"</label>
-                        <input type="text" name="name" id="first_name"
+                        <label for="deleteAccount" class="block mb-2 text-sm font-medium text-indigo-900">To confirm this, type "DELETE"</label>
+                        <input type="text" name="deleteAccount" id="deleteAccount"
                                class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
                                placeholder="DELETE" value="" required>
 

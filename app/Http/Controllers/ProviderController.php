@@ -74,7 +74,12 @@ class ProviderController extends Controller
         }
         return redirect('user/dashboard');
     }
+    //public function callback(Request $request, $provider) {
+        // Retrieve social user details from the provider (Google or GitHub)
+   //     $socialUser = Socialite::driver($provider)->user();
     
+     //   dd($socialUser);
+    //}
 
   
 }
