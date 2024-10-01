@@ -30,7 +30,7 @@ class AdminController extends Controller
             'name' => 'required|string',
             'lastName' => 'required|string',
             'email' => 'required|email',
-            'role' =>  'required|string',
+            'role' =>  'required|string|in:admin,user',
             'password' => 'required|string',
 
         ]);

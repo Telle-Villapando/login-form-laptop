@@ -69,7 +69,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function validateAdminToken($token)
     {
-        // Assuming you store the admin token in a .env or another secure way
+        // stored the admin token in a .env or another secure way
         return $token === env('ADMIN_TOKEN'); 
     }
 }

@@ -25,6 +25,7 @@ class AuthController extends Controller
     }
 
     public function registerUser(Request $request){
+        //validates user input
         $data = $request->validate([
             'name' => 'required|string',
             'lastName' => 'required|string',
@@ -45,7 +46,7 @@ class AuthController extends Controller
 
         return redirect(route('user.signIn'));
     }
-
+    //used limiter to limit login if there is too many failed login attempts
     public function signInUser(Request $request)
     {
         $key = 'signIn:' . $request->ip(); // Unique key for rate limiting

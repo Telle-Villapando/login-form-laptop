@@ -13,19 +13,21 @@ class ForgetPasswordController extends Controller
 {
     //
     function forgetPasswordPost(Request $request){
+        //checks is user emails exists
         $request->validate([
             'email' => 'required|email |exists:users',
         ]);
-
+        //generates random token that serves as unique identifier for password reset request 
         $token = Str::random(64);
+        //stores user email and token in db
         DB::table('password_reset_tokens')->insert([
             'email' => $request->email,
             'token' => $token,
             'created_at' => Carbon::now()
         ]);
-
+        //Sends reset password link to user's email 
         Mail::send('emails.forgetPasswordEmail', ['token'=>$token], function ($message) use ($request){
-
+            
             $message->to($request->email);
             $message->subject("Reset Password");
 

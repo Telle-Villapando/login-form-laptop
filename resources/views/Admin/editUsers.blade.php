@@ -40,9 +40,20 @@
                    <input type="email" value="{{$user->email}}" name="email"
                        class="block w-full p-2 mt-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                    <br>
-                   <label for="" class="text-lg font-semibold leading-tight text-gray-800">Role</label>
-                   <input type="text" name="role" value="{{$user->role}}"
-                       class="block w-full p-2 mt-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                   <label for="" class="text-lg font-semibold leading-tight text-gray-800 mb-4">Role</label>
+                   {{-- <input type="text" name="role" value="{{$user->role}}"
+                       class="block w-full p-2 mt-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"> --}}
+                    <br>
+                    <div class="block w-full p-2 mt-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <input type="radio" name="role" id="admin" value="admin" {{ $user->role == 'admin' ? 'checked' : '' }}>
+                            <label for="admin" class="text-base">Admin</label>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <input type="radio" name="role" id="user" value="user" {{ $user->role == 'user' ? 'checked' : '' }}>
+                            <label for="user" class="text-base">User</label>
+                        </div>
+                    </div>                
                    <br>
                   
                    <label for="" class="text-lg font-semibold leading-tight text-gray-800">Password</label>

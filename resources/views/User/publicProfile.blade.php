@@ -49,10 +49,12 @@
                     </div>
                     <div class="items-center mt-8 sm:mt-14 text-[#202142]">
                         <h2 class="text-xl font-bold text-indigo-900">{{ $user->name }} {{ $user->lastName }}</h2>
-                        <p class="text-sm text-gray-600 mb-4">{{ $user->email }}</p>
+                        <p class="text-sm text-gray-600 mb-4">{{ $user->role }} | {{ $user->email }} </p> 
+                        
+
                         
                         <div class="mb-6">
-                            <label for="bio" class="block mb-2 text-sm font-medium text-indigo-900">Bio</label>
+                            {{-- <label for="bio" class="block mb-2 text-sm font-medium text-indigo-900">Bio</label> --}}
                             <p id="bio" class="block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg border border-indigo-300">
                                 {{ $user->bio }}
                             </p>
